@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Markdown renderer</title>
+<script src="./ace-builds-master/src-min/ace.js"></script>
+<script src="./marked-master/marked.min.js"></script>
+<script src="./mermaid/mermaid.min.js"></script>
+<script src="index.js"></script>
+<style>
+		#editor {
+			/* border-right: 1px solid rgba(0,0,0,1); */
+			height: 500px;
+		}
+
+		#markdown-output {
+			height: 500px;
+			overflow: auto;
+		}
+</style>
+</head>
+<body onload="init()">
+    <table width="1300" style="table-layout: fixed;" border>
+        <th width="650">markdown</th>
+        <th width="650">実行結果</th>
+        <tr>
+            <input type="file" id="readFileId" value="読込">
+            <td ondragover="handleDragOver(event)" ondrop="execDrop(event)">
+				<div id="editor"></div>
+				<input type="button" onclick="reload()" value="変換">
+                <input type="button" onclick="saveData()" value="保存">
+            </td>
+            <td>
+				<div id="markdown-output"></div>
+				<input type="button" onclick="outputFile()" value="書き出し">
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

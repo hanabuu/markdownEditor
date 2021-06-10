@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <script src="./ganttTool.js"></script>
+  <script src="../libJs/common.js"></script>
+  <script src="../libJs/mermaid/mermaid.min.js"></script>
+</head>
+<body onload="init()">
+  <h1>ガントチャート作成ツール</h1>
+  <div id="message"></div>
+  <hr>
+  <div id="reloadSpace"><br><br><br></div>
+  <div class="mermaid" id="chart"></div>
+  <script>mermaid.initialize({startOnLoad:false});</script>
+
+  <input type="button" onclick="addProcessBtn()" value="新規工程追加">
+  <table id="process" hidden>
+    <th>工程</th>
+    <th>開始日</th>
+    <th>終了日</th>
+    <th>担当者</th>
+  </table>
+
+  <hr>
+  <br>
+  <input type="button" onclick="reloadChart()" value="再読み込み">
+  <input type="button" onclick="saveData()" value="データ保存">
+  <input type="button" onclick="deleteData()" value="データ削除">
+
+
+</body>
+</html>
